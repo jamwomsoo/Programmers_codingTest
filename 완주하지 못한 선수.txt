@@ -1,0 +1,21 @@
+def solution(participant, completion):
+    answer = ''
+    tmp1 = {}
+    tmp2 = {}    
+    for i in participant:
+        if i not in tmp1:
+            tmp1[i] = 1
+        else :
+            tmp1[i] = tmp1[i]+1
+            
+    for i in completion:
+        if i not in tmp2:
+            tmp2[i] = 1
+        else :
+            tmp2[i] = tmp2[i]+1
+
+    for i in tmp1.keys():
+        if tmp1.get(i) != tmp2.get(i):
+            answer = i
+            
+    return answer
