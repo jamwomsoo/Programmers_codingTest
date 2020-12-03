@@ -1,0 +1,21 @@
+def solution(priorities, location):
+    answer = 0
+    ls = [i for i in range(0,len(priorities))]
+    chk = ls[location]
+    tmp = 0
+    while len(priorities)>0:
+        for i in range(1,len(priorities)):
+            if priorities[0] < priorities[i]:
+                tmp = priorities.pop(0)
+                priorities.append(tmp)
+                
+                tmp = ls.pop(0)
+                ls.append(tmp)
+                break
+        if priorities[0] == max(priorities):
+            answer +=1
+            priorities.pop(0)
+            if ls.pop(0) == chk:
+                break
+            
+    return answer
